@@ -15,7 +15,13 @@ The pipeline includes:
 - Comprehensive evaluation and visualization tools
 
 ---
-
+📌 核心一
+In cross-subject EEG emotion recognition, the distribution discrepancy of EEG signals across different subjects is typically significant. Directly adopting arbitrary source subjects for transfer learning often results in poor generalization and degraded performance on the target subject.
+To address this problem, we implement an automatic source domain selection strategy based on the :
+Compute the MMD distance between the target subject and each candidate source subject in the feature space.
+A smaller MMD indicates a closer distribution alignment between the source and target domains.
+Select the top-K source subjects with the smallest MMD values as the optimal source domains.
+Perform transfer learning only on these high-similarity source domains, which significantly improves the cross-subject recognition accuracy.
 ## 📂 Repository Structure
 
 ```text
