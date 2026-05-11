@@ -321,15 +321,15 @@ class _UnifiedGreedyInfoSelectorBase(BaseEstimator, SelectorMixin):
 
 
 class FastMIIFSGPU(_UnifiedGreedyInfoSelectorBase):
-    """统一贪心框架下的 MIIFS 版本，只保留 MIIFS 的评分公式。"""
+    """统一贪心框架下的AEMIFS 版本，只保留AEMIFS 的评分公式。"""
 
     def _selector_label(self) -> str:
-        """返回 MIIFS 日志标签。"""
-        return "FastMIIFS"
+        """返回 AEMIFS 日志标签。"""
+        return "FastAEMIFS"
 
     def _score_label(self) -> str:
-        """返回 MIIFS 分数字段名称。"""
-        return "MIIFSScore"
+        """返回 AEMIFS分数字段名称。"""
+        return "AEMIFSScore"
 
     def _score_candidate(
         self,
@@ -337,7 +337,7 @@ class FastMIIFSGPU(_UnifiedGreedyInfoSelectorBase):
         selected: Sequence[int],
         stats: Dict[str, Any],
     ) -> float:
-        """按 MIIFS 公式计算候选特征分数。"""
+        """按 AEMIFS公式计算候选特征分数。"""
         pair_term_sum = 0.0
         for selected_idx in selected:
             pair_term_sum += self._miifs_pair_term(feature_idx, int(selected_idx), stats)
