@@ -54,7 +54,7 @@ OBSOLETE_REPORT_PATHS: Tuple[Path, ...] = (
 
 @dataclass(frozen=True)
 class StableFeatureSpec:
-    """定义 MIIFS_CANDD_STABLE 阶段一固定使用的特征选择口径。"""
+    """定义 AEMIFS_CANDD_STABLE 阶段一固定使用的特征选择口径。"""
 
     variance_threshold: float = 1e-3
     selector_bins: int = 48
@@ -66,7 +66,7 @@ class StableFeatureSpec:
 
 @dataclass(frozen=True)
 class StableTransferSpec:
-    """定义 MIIFS_CANDD_STABLE 阶段二固定使用的监督迁移口径。"""
+    """定义 AEMIFS_CANDD_STABLE 阶段二固定使用的监督迁移口径。"""
 
     max_source_subjects: int = 12
     source_sample_cap: int = 200
@@ -107,7 +107,7 @@ class TeeTextIO(io.TextIOBase):
 
 
 def build_parser() -> argparse.ArgumentParser:
-    """构建 MIIFS_CANDD_STABLE 实验入口参数。"""
+    """构建 AEMIFS_CANDD_STABLE 实验入口参数。"""
     parser = argparse.ArgumentParser(description="运行 MIIFS_CANDD_STABLE，并生成中文 JSON/MD 报告与调试日志。")
     parser.add_argument("--seed", type=int, default=42, help="统一随机种子。")
     parser.add_argument("--target-train-ratio", type=float, default=0.60, help="目标域训练集比例。")
